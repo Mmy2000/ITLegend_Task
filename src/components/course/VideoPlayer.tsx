@@ -26,14 +26,14 @@ export function VideoPlayer({ videoThumbnail }: VideoPlayerProps) {
       className={cn(
         "relative w-full transition-all duration-300",
         isWide
-          ? "fixed top-0 left-0 w-full h-screen z-50 bg-black"
-          : "sticky top-0 z-30 bg-black"
+          ? "fixed top-0 left-0 w-full h-auto z-50  "
+          : "sticky top-0 z-30 lg:relative"
       )}
     >
       <Card
         className={cn(
-          "overflow-hidden border-0 rounded-none transition-all duration-300",
-          "aspect-video max-h-[80vh]"
+          "overflow-hidden border-0 rounded-none transition-all duration-300 w-full",
+          "aspect-video max-h-[70vh]"
         )}
       >
         <div className="relative w-full h-full group">

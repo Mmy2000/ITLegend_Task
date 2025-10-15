@@ -47,7 +47,10 @@ export interface Lesson {
   title: string
   duration: string
   completed: boolean
-  locked: boolean
+  locked: boolean,
+  fileIcon:ComponentType<any>,
+  isExam:boolean,
+  pdfUrl:string
 } 
 
 export interface CourseSection {

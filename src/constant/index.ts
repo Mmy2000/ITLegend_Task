@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, BookOpen, Users, Globe } from "lucide-react";
+import { Clock, BookOpen, Users, Globe,FileText } from "lucide-react";
 import { Comment, CourseSection} from "@/interfaces";
 
 
@@ -33,24 +33,24 @@ export const COURSE_SECTIONS: CourseSection[] = [
     id: "1",
     title: "Introduction",
     lessons: [
-      { id: "1-1", title: "Welcome to the Course", duration: "5:30", completed: true, locked: false },
-      { id: "1-2", title: "Course Overview", duration: "8:45", completed: true, locked: false },
+      { id: "1-1", title: "Welcome to the Course", duration: "5:30", completed: true, locked: false,fileIcon:FileText,isExam:false,pdfUrl:"Mahmoud-M-Yousef-CV.pdf" },
+      { id: "1-2", title: "Course Overview", duration: "8:45", completed: true, locked: false,fileIcon:FileText,isExam:true,pdfUrl:"" },
     ],
   },
   {
     id: "2",
     title: "Getting Started",
     lessons: [
-      { id: "2-1", title: "Setting Up Your Environment", duration: "12:20", completed: false, locked: false },
-      { id: "2-2", title: "First Steps", duration: "10:15", completed: false, locked: false },
+      { id: "2-1", title: "Setting Up Your Environment", duration: "12:20", completed: false, locked: false,fileIcon:FileText,isExam:false,pdfUrl:"Mahmoud-M-Yousef-CV.pdf"  },
+      { id: "2-2", title: "First Steps", duration: "10:15", completed: false, locked: false,fileIcon:FileText,isExam:false,pdfUrl:"Mahmoud-M-Yousef-CV.pdf"  },
     ],
   },
   {
     id: "3",
     title: "Advanced Topics",
     lessons: [
-      { id: "3-1", title: "Deep Dive", duration: "15:40", completed: false, locked: true },
-      { id: "3-2", title: "Best Practices", duration: "11:30", completed: false, locked: true },
+      { id: "3-1", title: "Deep Dive", duration: "15:40", completed: false, locked: true,fileIcon:FileText,isExam:false,pdfUrl:"Mahmoud-M-Yousef-CV.pdf"  },
+      { id: "3-2", title: "Best Practices", duration: "11:30", completed: false, locked: true,fileIcon:FileText,isExam:false,pdfUrl:"Mahmoud-M-Yousef-CV.pdf"  },
     ],
   },
 ]
