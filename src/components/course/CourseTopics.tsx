@@ -166,12 +166,11 @@ export function CourseTopics({
                 ]}
               />
             ) : (
-              <embed
-                src={`/lessons/${selectedLesson?.pdfUrl}`}
-                type="application/pdf"
+              <iframe
+                src="https://drive.google.com/file/d/18gX9MDXjXRqcejJoPesyswHBN4iA426j/preview"
+                allow="autoplay"
                 className="w-full h-full"
-              />
-
+              ></iframe>
             )}
           </div>
         </DialogContent>
