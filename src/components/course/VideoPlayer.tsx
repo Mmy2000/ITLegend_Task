@@ -6,9 +6,15 @@ import { Play, Pause, Volume2, Maximize, Minimize2, Expand } from "lucide-react"
 import { cn } from "@/lib/utils";
 import { useVideoPlayer } from "@/hooks/use-video-player";
 import { VideoPlayerProps } from "@/interfaces";
-import { useState } from "react";
 
-export function VideoPlayer({ videoThumbnail }: VideoPlayerProps) {
+export function VideoPlayer({
+  videoThumbnail,
+  isWide,
+  setIsWide,
+}: VideoPlayerProps & {
+  isWide: boolean;
+  setIsWide: (value: boolean) => void;
+}) {
   const {
     playerState,
     togglePlay,
@@ -18,7 +24,7 @@ export function VideoPlayer({ videoThumbnail }: VideoPlayerProps) {
     videoContainerRef,
   } = useVideoPlayer();
 
-  const [isWide, setIsWide] = useState(false);
+  // const [isWide, setIsWide] = useState(false);
 
   return (
     <div
@@ -26,14 +32,14 @@ export function VideoPlayer({ videoThumbnail }: VideoPlayerProps) {
       className={cn(
         "relative w-full transition-all duration-300",
         isWide
-          ? "fixed top-0 left-0 w-full h-auto z-50  "
+          ? "sticky top-0 left-0 w-full h-auto z-50  "
           : "sticky top-0 z-30 lg:relative"
       )}
     >
       <Card
         className={cn(
           "overflow-hidden border-0 rounded-none transition-all duration-300 w-full",
-          "aspect-video max-h-[70vh]"
+          "aspect-video max-h-[60vh] px-7"
         )}
       >
         <div className="relative w-full h-full group">
@@ -98,7 +104,6 @@ export function VideoPlayer({ videoThumbnail }: VideoPlayerProps) {
                 <Volume2 className="h-5 w-5" />
               </Button>
 
-              {/* Wide Mode (desktop only) */}
               <Button
                 size="sm"
                 variant="ghost"
@@ -112,7 +117,6 @@ export function VideoPlayer({ videoThumbnail }: VideoPlayerProps) {
                 )}
               </Button>
 
-              {/* Fullscreen (all devices) */}
               <Button
                 size="sm"
                 variant="ghost"

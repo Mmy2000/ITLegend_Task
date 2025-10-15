@@ -21,6 +21,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import ExamViewer from "../ExamViewer";
+import ProgressBar from "./ProgressBar";
 
 
 export function CourseTopics({
@@ -29,6 +30,7 @@ export function CourseTopics({
   activeLesson,
   onToggleSection,
   onSelectLesson,
+  progress
 }: CourseTopicssProps) {
   const [selectedLesson, setSelectedLesson] = useState<any>(null);
 
@@ -43,11 +45,13 @@ export function CourseTopics({
   return (
     <>
       <Card className="border overflow-hidden transition-all duration-300 animate-fade-in-left">
-        <div className="p-4 border-b">
+        <div className="p-4 border-b mb-6">
           <h2 className="text-lg font-semibold">Topics for This Course</h2>
         </div>
 
-        <ScrollArea className="h-[600px]">
+        <ProgressBar completedLessons={progress.completedLessons} percentage={progress.percentage} totalLessons={progress.totalLessons} />
+
+        <ScrollArea>
           <div className="p-2">
             {sections.map((section, sectionIndex) => (
               <div
@@ -55,7 +59,6 @@ export function CourseTopics({
                 className="mb-2 animate-fade-in"
                 style={{ animationDelay: `${sectionIndex * 50}ms` }}
               >
-                {/* Section Header */}
                 <button
                   onClick={() => onToggleSection(section.id)}
                   className="w-full flex items-center justify-between p-3 rounded-lg transition-all duration-300 hover:scale-[1.02]"
@@ -68,7 +71,6 @@ export function CourseTopics({
                   )}
                 </button>
 
-                {/* Lessons */}
                 {expandedSections.includes(section.id) && (
                   <div className="mt-1 space-y-1 animate-fade-in-down">
                     {section.lessons.map((lesson, lessonIndex) => (
@@ -131,7 +133,6 @@ export function CourseTopics({
         </ScrollArea>
       </Card>
 
-      {/* 🔹 Shadcn Dialog for Exam or PDF */}
       <Dialog open={!!selectedLesson} onOpenChange={handleClose}>
         <DialogContent
           className="max-w-full w-full h-screen p-0 bg-background overflow-hidden"
@@ -145,7 +146,6 @@ export function CourseTopics({
             <DialogClose asChild></DialogClose>
           </DialogHeader>
 
-          {/* Modal Content */}
           <div className="w-full h-[calc(100vh-80px)]">
             {selectedLesson?.isExam ? (
               <ExamViewer

@@ -59,10 +59,17 @@ export interface CourseSection {
   lessons: Lesson[]
 }
 
+export interface Progress {
+  completedLessons:number,
+  percentage:number,
+  totalLessons:number
+}
+
 export interface CourseTopicssProps {
   sections: CourseSection[];
   expandedSections: string[];
   activeLesson: string;
   onToggleSection: (sectionId: string) => void;
   onSelectLesson: (lessonId: string, isLocked: boolean) => void;
+  progress:Progress
 }
