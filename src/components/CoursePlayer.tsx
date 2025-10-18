@@ -31,6 +31,9 @@ const CoursePlayer = () => {
     addComment("Current User", "/placeholder.svg");
   };
 
+  console.log(isWide);
+  
+
   return (
     <div className="min-h-screen transition-colors duration-300">
       <CourseHeader
@@ -98,18 +101,22 @@ const CoursePlayer = () => {
             />
           )}
 
-          <div id="curriculum-section">
-            <CourseMaterials topics={courseDetails} />
-          </div>
+          {isWide && (
+            <div id="curriculum-section">
+              <CourseMaterials topics={courseDetails} />
+            </div>
+          )}
 
-          <div id="comments-section">
-            <CommentsSection
-              comments={comments}
-              newComment={newComment}
-              onCommentChange={setNewComment}
-              onSubmitComment={handleSubmitComment}
-            />
-          </div>
+          {isWide && (
+            <div id="comments-section">
+              <CommentsSection
+                comments={comments}
+                newComment={newComment}
+                onCommentChange={setNewComment}
+                onSubmitComment={handleSubmitComment}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
